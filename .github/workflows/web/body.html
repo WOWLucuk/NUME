@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUME</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .content-block {
+            display: flex;
+            align-items: center;
+            background-color: #e9ecef;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .bg-lightmetal {
+            background-color: #FFD700;
+        }
+
+        .bg-lightwood {
+            background-color: #228B22;
+        }
+
+        .bg-lightwater {
+            background-color: #4682B4;
+        }
+
+        .bg-lightfire {
+            background-color: #FF6347;
+        }
+
+        .bg-lightearth {
+            background-color: #D2B48C;
+        }
+
+        .content-block img {
+            width: 25%;
+            max-width: 150px;
+            margin-right: 20px;
+        }
+
+        .content-block p {
+            width: 75%;
+            text-align: left;
+            margin: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(161, 207, 161);
+            /* 背景色 */
+            padding: 10px 20px;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 50px;
+            /* LOGO圖片高度 */
+            margin-right: 10px;
+            /* 圖片和文字之間的間距 */
+        }
+
+        .header .menu-btn {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .header .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0%;
+            /* Start off-screen */
+            width: 30%;
+            /* Width of menu */
+            height: 100%;
+            background-color: black;
+            /* Background color of menu */
+            color: white;
+            /* Text color of menu */
+            z-index: 1000;
+            transition: right 0.3s ease;
+            /* Smooth slide animation */
+            padding: 20px;
+        }
+
+        .header .menu a {
+            display: block;
+            padding: 10px 50px 20px;
+            ;
+            text-decoration: none;
+            color: white;
+            /* Text color of menu items */
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .header .menu a:hover {
+            background-color: #333;
+        }
+
+        .header .close-btn {
+            margin-bottom: 20px;
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            /* Text color of close button */
+        }
+
+        .main-image {
+            max-width: 1200px;
+            max-height: 400px;
+            width: auto;
+            height: auto;
+        }
+
+        .hollow-text {
+            font-size: 20px;
+            /* 設置字體大小 */
+            color: #000000;
+            /* 設置字體顏色為白色 */
+            font-weight: bold;
+            /* 設置字體粗細 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 標題功能列 -->
+    <div class="header">
+        <div class="logo">
+            <img src="images\header\logo.png" alt="Logo">
+            <!-- <span>NUNE</span> -->
+        </div>
+        <button class="menu-btn" onclick="toggleMenu()">選單</button>
+        <div class="menu" id="menu">
+            <span class="close-btn" onclick="toggleMenu()">&times;</span>
+            <a href="main.html">HOME</a>
+            <a href="aboutme.html">關於Nume</a>
+            <a href="idea.html">品牌理念</a>
+            <a href="body.html">了解自己</a>
+            <a href="service.html">服務項目</a>
+            <a href="contact.html">聯繫我們</a>
+        </div>
+    </div>
+    <div class="header1">了解自己</div>
+    <div class="main-image-container">
+        <img src="images\body\body.jpg" alt="Main Image" class="main-image">
+    </div>
+
+    <div class="content-block bg-lightmetal">
+        <img src="images\body\metal.png" alt="Image 1">
+        <div class="hollow-text">
+            金代表肺，是呼吸系統的主要代表。金的色彩能夠影響呼吸道的健康，包括呼吸暢通、肺部清潔和免疫功能。金色也與皮膚健康有關，能夠影響皮膚的彈性和光澤。情緒上，金色有助於平靜情緒、穩定情感，有助於克服憂慮和恐懼。</div>
+    </div>
+    <div class="content-block bg-lightwood">
+        <img src="images\body\wood.png" alt="Image 2">
+        <div class="hollow-text">木代表肝，與血液循環和情緒穩定密切相關。木的色彩對於肝臟功能和血液循環至關重要。在情緒層面，木色能夠幫助調節情緒，增加活力和積極性。它也與視力和肌肉健康有關。 </div>
+    </div>
+    <div class="content-block bg-lightwater">
+        <img src="images\body\water.png" alt="Image 3">
+        <div class="hollow-text">水代表腎，是體內水分代謝的中心，也與生殖系統和骨骼健康有關。水的色彩能夠影響腎臟功能、體液平衡和生殖系統健康。在情緒上，水色有助於平靜心境、增進洞察力和靈感。</div>
+    </div>
+    <div class="content-block bg-lightfire">
+        <img src="images\body\fire.png" alt="Image 4">
+        <div class="hollow-text">火代表心，是情感和表達的中心，也關乎心血管系統和睡眠品質。火色可以影響心臟功能、情感表達和睡眠質量。它也與創造力、熱情和活力有關。</div>
+    </div>
+    <div class="content-block bg-lightearth">
+        <img src="images\body\earth.png" alt="Image 5">
+        <div class="hollow-text">土代表脾胃，是消化吸收的主要器官，也與肌肉骨骼、大腦功能有關。土的色彩能夠影響脾胃功能、肌肉骨骼健康和大腦運作。在情緒層面，土色有助於穩定情緒、增強信心和安全感。</div>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showNextImage(carouselId) {
+            const carouselInner = document.getElementById(carouselId).querySelector('.carousel-inner');
+            const items = document.getElementById(carouselId).querySelectorAll('.carousel-item');
+            let index = carouselInner.getAttribute('data-index') || 0;
+            index = (parseInt(index) + 1) % items.length;
+            carouselInner.style.transform = `translateX(-${index * 100}%)`;
+            carouselInner.setAttribute('data-index', index);
+        }
+
+        setInterval(() => showNextImage('carousel1'), 3000);
+        setInterval(() => showNextImage('carousel2'), 1500);
+    </script>
+</body>
+
+</html>

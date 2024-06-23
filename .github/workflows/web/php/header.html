@@ -1,0 +1,20 @@
+<!-- header.html -->
+<div class="header">
+  <div class="logo">
+    <img src="https://via.placeholder.com/50" alt="Logo">
+    <span>NUNE</span>
+  </div>
+  <button class="menu-btn" onclick="toggleMenu()">選單</button>
+  <div class="menu" id="menu">
+    <span class="close-btn" onclick="toggleMenu()">&times;</span>
+    <a href="https://www.homepage.com">主頁</a>
+    <a href="https://www.analysis.com">分析</a>
+    <a href="https://www.contactus.com">聯繫我們</a>
+  </div>
+</div>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  }
+</script>
