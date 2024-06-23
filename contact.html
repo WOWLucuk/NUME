@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUME</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        } */
+
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            /* 將 space-between 改為 flex-start */
+            align-items: left;
+            width: 80%;
+            max-width: 1200px;
+            margin-bottom: 20px;
+        }
+
+        .container .item {
+            margin-right: 50px;
+            /* 調整間距 */
+        }
+
+        .container .item img {
+            max-width: 200px;
+            max-height: 100px;
+            width: auto;
+            height: auto;
+        }
+
+        .link-image {
+            display: block;
+            width: 45%;
+        }
+
+        .link-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .description {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(161, 207, 161);
+            /* 背景色 */
+            padding: 10px 20px;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 50px;
+            /* LOGO圖片高度 */
+            margin-right: 10px;
+            /* 圖片和文字之間的間距 */
+        }
+
+        .header .menu-btn {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .header .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0%;
+            /* Start off-screen */
+            width: 30%;
+            /* Width of menu */
+            height: 100%;
+            background-color: black;
+            /* Background color of menu */
+            color: white;
+            /* Text color of menu */
+            z-index: 1000;
+            transition: right 0.3s ease;
+            /* Smooth slide animation */
+            padding: 20px;
+        }
+
+        .header .menu a {
+            display: block;
+            padding: 10px 50px 20px;
+            ;
+            text-decoration: none;
+            color: white;
+            /* Text color of menu items */
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .header .menu a:hover {
+            background-color: #333;
+        }
+
+        .header .close-btn {
+            margin-bottom: 20px;
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            /* Text color of close button */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 標題功能列 -->
+    <div class="header">
+        <div class="logo">
+            <img src="images\header\logo.png" alt="Logo">
+            <!-- <span>NUNE</span> -->
+        </div>
+        <button class="menu-btn" onclick="toggleMenu()">選單</button>
+        <div class="menu" id="menu">
+            <span class="close-btn" onclick="toggleMenu()">&times;</span>
+            <a href="main.html">HOME</a>
+            <a href="aboutme.html">關於Nume</a>
+            <a href="idea.html">品牌理念</a>
+            <a href="body.html">了解自己</a>
+            <a href="service.html">服務項目</a>
+            <a href="contact.html">聯繫我們</a>
+        </div>
+    </div>
+    <div class="header1">聯繫我們</div>
+
+    <div class="container">
+
+        <div class="item">
+            <img src="images\contact\image1.jpg" alt="左邊圖片">
+        </div>
+        <div class="item">
+            <a href="https://example.com" class="link-image">
+                <img src="images\contact\image2.png" alt="右邊圖片">
+            </a>
+        </div>
+        <div class="item">
+            <h1>折扣 100 NTD</h1>
+        </div>
+    </div>
+    <div class="description">
+        <p>🎉 加入我們的LINE專屬會員，即可享有獨家優惠！ 🎁</p>
+
+        <p>🌟 會員專屬折扣：LINE會員每次購物都享有額外折扣，讓你省更多！</p>
+
+        <p>🌟 最新優惠通知：第一時間收到最新的優惠活動訊息，絕不錯過任何精彩促銷！</p>
+
+        <p>🌟 專屬好康禮遇：定期舉辦的抽獎活動、限量贈品，只有LINE會員有資格參加！</p>
+
+        <p>🌟 快速客服通道：有任何問題或需求，加入LINE專屬客服群組，專人即時為您服務！</p>
+
+        <p>👉 馬上掃描QR碼或點擊連結加入LINE會員，開啟專屬優惠之旅！✨</p>
+
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showNextImage(carouselId) {
+            const carouselInner = document.getElementById(carouselId).querySelector('.carousel-inner');
+            const items = document.getElementById(carouselId).querySelectorAll('.carousel-item');
+            let index = carouselInner.getAttribute('data-index') || 0;
+            index = (parseInt(index) + 1) % items.length;
+            carouselInner.style.transform = `translateX(-${index * 100}%)`;
+            carouselInner.setAttribute('data-index', index);
+        }
+
+        setInterval(() => showNextImage('carousel1'), 3000);
+        setInterval(() => showNextImage('carousel2'), 1500);
+    </script>
+</body>
+
+</html>

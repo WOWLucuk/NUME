@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUME</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header,
+        .section-header {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main-content {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .services,
+        .environment {
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .service-item {
+            background-color: #e0e0e0;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .video-container video {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(161, 207, 161);
+            /* 背景色 */
+            padding: 10px 20px;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 50px;
+            /* LOGO圖片高度 */
+            margin-right: 10px;
+            /* 圖片和文字之間的間距 */
+        }
+
+        .header .menu-btn {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .header .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0%;
+            /* Start off-screen */
+            width: 30%;
+            /* Width of menu */
+            height: 100%;
+            background-color: black;
+            /* Background color of menu */
+            color: white;
+            /* Text color of menu */
+            z-index: 1000;
+            transition: right 0.3s ease;
+            /* Smooth slide animation */
+            padding: 20px;
+        }
+
+        .header .menu a {
+            display: block;
+            padding: 10px 50px 20px;
+            ;
+            text-decoration: none;
+            color: white;
+            /* Text color of menu items */
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .header .menu a:hover {
+            background-color: #333;
+        }
+
+        .header .close-btn {
+            margin-bottom: 20px;
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            /* Text color of close button */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 標題功能列 -->
+    <div class="header">
+        <div class="logo">
+            <img src="images\header\logo.png" alt="Logo">
+            <!-- <span>NUNE</span> -->
+        </div>
+        <button class="menu-btn" onclick="toggleMenu()">選單</button>
+        <div class="menu" id="menu">
+            <span class="close-btn" onclick="toggleMenu()">&times;</span>
+            <a href="main.html">HOME</a>
+            <a href="aboutme.html">關於Nume</a>
+            <a href="idea.html">品牌理念</a>
+            <a href="body.html">了解自己</a>
+            <a href="service.html">服務項目</a>
+            <a href="contact.html">聯繫我們</a>
+        </div>
+    </div>
+    <div class="header1">服務項目</div>
+    <div class="main-content">
+        <h2>提供服務項目</h2>
+        <div class="services">
+            <div class="service-item">健康評估</div>
+            <div class="service-item">每日營養</div>
+            <div class="service-item">每日保養</div>
+            <div class="service-item">體態管理</div>
+        </div>
+    </div>
+    <div class="header1">環境介紹</div>
+    </div>
+    <div class="environment">
+        <!-- 環境介紹的內容可以在此添加 -->
+    </div>
+    <div class="video-container">
+        <video controls>
+            <source src="images\service\mov.mp4" type="video/mp4">
+            您的瀏覽器不支持HTML5視頻標籤。
+        </video>
+        <!-- <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Z0IZMfaE0S0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div> -->
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showNextImage(carouselId) {
+            const carouselInner = document.getElementById(carouselId).querySelector('.carousel-inner');
+            const items = document.getElementById(carouselId).querySelectorAll('.carousel-item');
+            let index = carouselInner.getAttribute('data-index') || 0;
+            index = (parseInt(index) + 1) % items.length;
+            carouselInner.style.transform = `translateX(-${index * 100}%)`;
+            carouselInner.setAttribute('data-index', index);
+        }
+
+        setInterval(() => showNextImage('carousel1'), 3000);
+        setInterval(() => showNextImage('carousel2'), 1500);
+    </script>
+</body>
+
+</html>
