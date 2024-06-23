@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .header1 {
     background-color: #f8f9fa;
     padding: 20px 0;
@@ -13,4 +19,77 @@ body {
     /* 這裡設置你想要的背景色 */
     /* background: url('images/bg/image2.png') no-repeat center center fixed;
     background-size: cover; */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(161, 207, 161);
+    /* 背景色 */
+    padding: 10px 20px;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    height: 50px;
+    /* LOGO圖片高度 */
+    margin-right: 10px;
+    /* 圖片和文字之間的間距 */
+}
+
+.header .menu-btn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.header .menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0%;
+    /* Start off-screen */
+    width: 30%;
+    /* Width of menu */
+    height: 100%;
+    background-color: black;
+    /* Background color of menu */
+    color: white;
+    /* Text color of menu */
+    z-index: 1000;
+    transition: right 0.3s ease;
+    /* Smooth slide animation */
+    padding: 20px;
+}
+
+.header .menu a {
+    display: block;
+    padding: 10px 0px 20px;
+    text-decoration: none;
+    color: white;
+    /* Text color of menu items */
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+
+.header .menu a:hover {
+    background-color: #333;
+}
+
+.header .close-btn {
+    margin-bottom: 20px;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    /* Text color of close button */
 }
