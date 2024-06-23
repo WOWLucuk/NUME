@@ -1,0 +1,16 @@
+.header1 {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fffde7;
+
+}
+
+body {
+    background-color: #caeac6;
+    /* 這裡設置你想要的背景色 */
+    /* background: url('images/bg/image2.png') no-repeat center center fixed;
+    background-size: cover; */
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUME</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-color: #caeac6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .section:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .image {
+            flex: 4;
+            background-color: #d0d0d0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .text {
+            flex: 6;
+            background-color: #e0e0e0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            background-color: #c0c0c0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(161, 207, 161);
+            /* 背景色 */
+            padding: 10px 20px;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 50px;
+            /* LOGO圖片高度 */
+            margin-right: 10px;
+            /* 圖片和文字之間的間距 */
+        }
+
+        .header .menu-btn {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .header .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0%;
+            /* Start off-screen */
+            width: 30%;
+            /* Width of menu */
+            height: 100%;
+            background-color: black;
+            /* Background color of menu */
+            color: white;
+            /* Text color of menu */
+            z-index: 1000;
+            transition: right 0.3s ease;
+            /* Smooth slide animation */
+            padding: 20px;
+        }
+
+        .header .menu a {
+            display: block;
+            padding: 10px 50px 20px;
+            ;
+            text-decoration: none;
+            color: white;
+            /* Text color of menu items */
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .header .menu a:hover {
+            background-color: #333;
+        }
+
+        .header .close-btn {
+            margin-bottom: 20px;
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            /* Text color of close button */
+        }
+
+        .text {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 標題功能列 -->
+    <div class="header">
+        <div class="logo">
+            <img src="images\header\logo.png" alt="Logo">
+            <!-- <span>NUNE</span> -->
+        </div>
+        <button class="menu-btn" onclick="toggleMenu()">選單</button>
+        <div class="menu" id="menu">
+            <span class="close-btn" onclick="toggleMenu()">&times;</span>
+            <a href="main.html">HOME</a>
+            <a href="aboutme.html">關於Nume</a>
+            <a href="idea.html">品牌理念</a>
+            <a href="body.html">了解自己</a>
+            <a href="service.html">服務項目</a>
+            <a href="contact.html">聯繫我們</a>
+        </div>
+    </div>
+    <div class="header1">關於NUNE</div>
+    <div class="container">
+        <div class="section">
+            <div class="image">
+                <img src="images\aboutme\image1.png" alt="Image 1">
+            </div>
+            <div class="text">
+                <p>口罩是一種用於防護呼吸道健康的必備品，能有效過濾空氣中的顆粒物和病原體。我們的口罩採用多層高效濾材設計，舒適透氣且貼合臉部，提供全天候的防護，適合各種場合使用，包括日常生活、通勤和工作場所。</p>
+            </div>
+        </div>
+        <div class="section">
+
+            <div class="image">
+                <img src="images\aboutme\image2.png" alt="Image 2">
+            </div>
+            <div class="text">
+                <p>包裝袋是一種用於保護和運輸物品的多功能產品，具有高強度和耐用性的特點。我們的包裝袋由環保材料製成，不僅堅固耐用，還能有效防水、防塵，確保您的物品在運輸過程中不受損壞。無論是日常購物、旅行還是搬家，我們的包裝袋都是您的最佳選擇。
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showNextImage(carouselId) {
+            const carouselInner = document.getElementById(carouselId).querySelector('.carousel-inner');
+            const items = document.getElementById(carouselId).querySelectorAll('.carousel-item');
+            let index = carouselInner.getAttribute('data-index') || 0;
+            index = (parseInt(index) + 1) % items.length;
+            carouselInner.style.transform = `translateX(-${index * 100}%)`;
+            carouselInner.setAttribute('data-index', index);
+        }
+
+        setInterval(() => showNextImage('carousel1'), 3000);
+        setInterval(() => showNextImage('carousel2'), 1500);
+    </script>
+</body>
+
+</html>
