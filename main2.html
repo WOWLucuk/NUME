@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUME</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      background-color: black;
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+
+    .carousel-text {
+      min-width: 100%;
+      flex: 1 0 100%;
+      text-align: center;
+      font-size: 1em;
+      padding: 1px;
+      box-sizing: border-box;
+      color: white;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent;
+      border: none;
+      font-size: 0.8em;
+      cursor: pointer;
+      z-index: 10;
+      color: #D3D3D380;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .carousel {
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+    }
+
+    .carousel-item400px img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .large-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .centered-text {
+      text-align: center;
+      margin: 10px 0;
+      padding: 10px;
+    }
+
+    .services,
+    .contact-info {
+      text-align: center;
+      margin: 10px -10px;
+      padding: 10px;
+    }
+
+    .bg-lightyellow {
+      background-color: #ece3d3;
+    }
+
+    .fixed-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .fixed-icon img {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+
+    .indent {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e0e0e0;
+    }
+
+    .indent1 {
+      text-indent: 5em;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <div class="carousel" id="carousel2">
+    <div class="carousel-inner">
+      <div class="carousel-item carousel-item400px"><img src="images/main/main_big_carousel/image1.png" alt="Image 1">
+      </div>
+      <div class="carousel-item carousel-item400px"><img src="images/main/main_big_carousel/image2.png" alt="Image 2">
+      </div>
+      <div class="carousel-item carousel-item400px"><img src="images/main/main_big_carousel/image3.png" alt="Image 3">
+      </div>
+      <div class="carousel-item carousel-item400px"><img src="images/main/main_big_carousel/image4.png" alt="Image 4">
+      </div>
+      <div class="carousel-item carousel-item400px"><img src="images/main/main_big_carousel/image5.png" alt="Image 5">
+      </div>
+    </div>
+  </div>
+
+  <div class="centered-text">
+    <img src="images/main/main_big/LargeImage.png" alt="Large Image" class="large-image">
+  </div>
+
+  <div class="centered-text">
+    <p class="indent">讓經營健康成為一種可選擇的生活儀式</p>
+    <p class="indent">給予身體最適化養分，恢復原廠設定體質</p>
+    <p class="indent">Without a healthy body,There is no pleasant life</p>
+  </div>
+
+  <div class="centered-text bg-lightyellow">
+    <h2>｜服務項目｜</h2>
+    <div class="services">
+      <h3>健康營養評估</h3>
+      <h3>每日飲食建議</h3>
+      <h3>肌膚專業諮詢</h3>
+      <h3>體態管理方針</h3>
+    </div>
+  </div>
+
+  <div class="contact-info bg-lightyellow">
+    <h3>｜聯絡資訊｜</h3>
+    <h3>電話：0909331093</h3>
+    <h3>地址：台中市南區五權南路470號</h3>
+    <h3>Email：nume.care1994@gmail.com</h3>
+  </div>
+
+  <div class="fixed-icon">
+    <a href="https://page.line.me/nume" target="_blank">
+      <img src="images/icon/line_icon.png" alt="Fixed Icon">
+    </a>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelector('.carousel-slide');
+    const totalSlides = document.querySelectorAll('.carousel-text').length;
+
+    function moveSlide(direction) {
+      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+    }
+
+    function autoSlide() {
+      moveSlide(1);
+      setTimeout(autoSlide, 5000); // 5秒切換一次
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      setTimeout(autoSlide, 5000); // 初次延遲5秒
+      loadHeader();
+    });
+
+    function loadHeader() {
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading header:', error));
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function showNextImage(carouselId) {
+      const carouselInner = document.getElementById(carouselId).querySelector('.carousel-inner');
+      const items = document.getElementById(carouselId).querySelectorAll('.carousel-item');
+      let index = carouselInner.getAttribute('data-index') || 0;
+      index = (parseInt(index) + 1) % items.length;
+      carouselInner.style.transform = `translateX(-${index * 100}%)`;
+      carouselInner.setAttribute('data-index', index);
+    }
+
+    setInterval(() => showNextImage('carousel2'), 3000);
+  </script>
+</body>
+
+</html>
