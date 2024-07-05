@@ -7,11 +7,52 @@
   <title>NUME</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      background-color: black;
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+
+    .carousel-text {
+      min-width: 100%;
+      flex: 1 0 100%;
+      text-align: center;
+      font-size: 1em;
+      padding: 1px;
+      box-sizing: border-box;
+      color: white;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: transparent;
+      border: none;
+      font-size: 0.8em;
+      cursor: pointer;
+      z-index: 10;
+      color: #D3D3D380;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
     .carousel {
       width: 100%;
       overflow: hidden;
       margin-bottom: 20px;
-      /* 增加間距，使得兩個輪播圖之間有間隔 */
     }
 
     .carousel-inner {
@@ -23,90 +64,33 @@
       min-width: 100%;
     }
 
-    .carousel-item50px img {
-      width: 100%;
-      height: 50px;
-      /* 設定固定高度 */
-      object-fit: cover;
-      /* 保持圖片比例並裁切溢出部分 */
-    }
-
     .carousel-item400px img {
       width: 100%;
       height: 400px;
-      /* 設定固定高度 */
       object-fit: cover;
-      /* 保持圖片比例並裁切溢出部分 */
     }
 
     .large-image {
-      max-width: 1200px;
-      max-height: 400px;
-      width: auto;
+      width: 100%;
       height: auto;
     }
 
     .centered-text {
       text-align: center;
-      margin: 20px 0;
-      padding: 20px;
-      /* 增加內間距 */
-    }
-
-    .large-image {
-      width: 100%;
-      height: auto;
-    }
-
-    .fb-link {
-      text-align: center;
-      margin: 20px 0;
-      padding: 20px;
-      /* 增加內間距 */
-    }
-
-    .fb-link img {
-      max-width: 400px;
-      max-height: 300px;
-      width: auto;
-      height: auto;
+      margin: 10px 0;
+      padding: 10px;
     }
 
     .services,
     .contact-info {
       text-align: center;
-      margin: 20px 0;
-      padding: 20px;
-      /* 增加內間距 */
-    }
-
-    .bg-lightblue {
-      background-color: #e7f3fe;
-    }
-
-    .bg-lightgreen {
-      background-color: #e8f5e9;
+      margin: 10px -10px;
+      padding: 10px;
     }
 
     .bg-lightyellow {
-      background-color: #fffde7;
+      background-color: #ece3d3;
     }
-
-    .bg-lightpink {
-      background-color: #fce4ec;
-    }
-
-    .bg-lightgray {
-      background-color: #f5f5f5;
-    }
-
-
-
-    .menu-links a {
-      margin-bottom: 10px;
-      /* 調整超連結之間的垂直間距 */
-    }
-
 
     .fixed-icon {
       position: fixed;
@@ -123,121 +107,98 @@
 
     .indent {
       font-size: 24px;
-      /* 设置字体大小 */
       font-weight: bold;
-      /* 设置字体粗体 */
+      color: #e0e0e0;
     }
 
     .indent1 {
       text-indent: 5em;
-      /* 這裡設置縮進的寬度，可以根據需要調整 */
       font-size: 24px;
-      /* 设置字体大小 */
       font-weight: bold;
-      /* 设置字体粗体 */
     }
   </style>
 </head>
 
 <body>
+  <div id="header-placeholder"></div>
 
-
-
-  <!-- 第一個輪播圖比較小的放廣告資訊 -->
-  <div class="carousel" id="carousel1">
-    <div class="carousel-inner">
-
-      <div class="carousel-item carousel-item50px"><img src="images\main\\main_ad_carousel\ad_1.jpg" alt="Image 1">
-      </div>
-      <div class="carousel-item carousel-item50px"><img src="images\main\main_ad_carousel\ad_2.jpg" alt="Image 2"></div>
-      <div class="carousel-item carousel-item50px"><img src="images\main\main_ad_carousel\ad_3.jpg" alt="Image 3"></div>
-    </div>
-  </div>
-
-  <!-- 標題功能列 -->
-  <div class="header">
-    <div class="logo">
-      <img src="images\header\logo.png" alt="Logo">
-      <!-- <span>NUNE</span> -->
-    </div>
-    <button class="menu-btn" onclick="toggleMenu()">選單</button>
-    <div class="menu" id="menu">
-      <span class="close-btn" onclick="toggleMenu()">&times;</span>
-      <a href="main.html">HOME</a>
-      <a href="aboutme.html">關於Nume</a>
-      <a href="idea.html">品牌理念</a>
-      <a href="body.html">了解自己</a>
-      <a href="service.html">服務項目</a>
-      <a href="contact.html">聯繫我們</a>
-    </div>
-  </div>
-
-  <!-- 大輪播圖 -->
   <div class="carousel" id="carousel2">
     <div class="carousel-inner">
-      <div class="carousel-item carousel-item400px"><img src="images\main\main_big_carousel\image1.png" alt="Image 1">
+      <div class="carousel-item carousel-item400px"><img src="images/main/main_big_carousel/image1.png" alt="Image 1">
       </div>
-      <div class="carousel-item carousel-item400px"><img src="images\main\main_big_carousel\image2.png" alt="Image 2">
+      <div class="carousel-item carousel-item400px"><img src="images/main/main_big_carousel/image2.png" alt="Image 2">
       </div>
-      <div class="carousel-item carousel-item400px"><img src="images\main\main_big_carousel\image3.png" alt="Image 3">
+      <div class="carousel-item carousel-item400px"><img src="images/main/main_big_carousel/image3.png" alt="Image 3">
       </div>
-      <div class="carousel-item carousel-item400px"><img src="images\main\main_big_carousel\image4.png" alt="Image 4">
+      <div class="carousel-item carousel-item400px"><img src="images/main/main_big_carousel/image4.png" alt="Image 4">
       </div>
-      <div class="carousel-item carousel-item400px"><img src="images\main\main_big_carousel\image5.png" alt="Image 5">
+      <div class="carousel-item carousel-item400px"><img src="images/main/main_big_carousel/image5.png" alt="Image 5">
       </div>
     </div>
   </div>
 
-  <!-- 放一張大圖片 -->
-  <!-- <div class="centered-text bg-lightyellow"> -->
   <div class="centered-text">
-    <img src="images\main\main_big\LargeImage.png" alt="Large Image" class="large-image">
+    <img src="images/main/main_big/LargeImage.png" alt="Large Image" class="large-image">
   </div>
 
-  <!-- 文字置中 -->
-  <!-- <div class="centered-text bg-lightyellow"> -->
   <div class="centered-text">
-    <p class="indent">〽️讓經營健康成為一種可選擇的生活儀式</p>
-    <p class="indent1">給予身體最適化養分，恢復原廠設定體質</p>
-    <p class="indent1">Nutrition Empowers, unveil the NEW ME</p>
+    <p class="indent">讓經營健康成為一種可選擇的生活儀式</p>
+    <p class="indent">給予身體最適化養分，恢復原廠設定體質</p>
+    <p class="indent">Without a healthy body,There is no pleasant life</p>
   </div>
 
-  <!-- FB官方連結+圖片 -->
-  <div class="fb-link bg-lightyellow">
-    <a href="https://www.facebook.com/profile.php?id=61560910903574&mibextid=LQQJ4d" target="_blank">
-      <img src="images\main\fb\image.png" alt="FB Logo">
-      <p>FB官方連結</p>
-    </a>
-  </div>
-
-  <!-- 大文字置中 下面再加上服務項目 -->
   <div class="centered-text bg-lightyellow">
-    <h2>我們的服務項目</h2>
+    <h2>｜服務項目｜</h2>
     <div class="services">
-      <p> 〽️Service Item：</p>
-      <p>·健康營養評估</p>
-      <p>·每日飲食建議</p>
-      <p>·肌膚專業諮詢</p>
-      <p>·體態管理方針</p>
+      <h3>健康營養評估</h3>
+      <h3>每日飲食建議</h3>
+      <h3>肌膚專業諮詢</h3>
+      <h3>體態管理方針</h3>
     </div>
   </div>
 
-  <!-- 聯絡資訊置中 -->
   <div class="contact-info bg-lightyellow">
-    <h3>聯絡資訊</h3>
-    <p>電話：0909331093</p>
-    <p>地址：台中市南區五權南路470號</p>
-    <p>Email：nume.care1994@gmail.com</p>
+    <h3>｜聯絡資訊｜</h3>
+    <h3>電話：0909331093</h3>
+    <h3>地址：台中市南區五權南路470號</h3>
+    <h3>Email：nume.care1994@gmail.com</h3>
   </div>
 
-  <!-- 左下角固定圖示 -->
   <div class="fixed-icon">
     <a href="https://page.line.me/nume" target="_blank">
-      <img src="images\icon\line_icon.png" alt="Fixed Icon">
+      <img src="images/icon/line_icon.png" alt="Fixed Icon">
     </a>
   </div>
 
   <script>
+    let currentIndex = 0;
+    const slides = document.querySelector('.carousel-slide');
+    const totalSlides = document.querySelectorAll('.carousel-text').length;
+
+    function moveSlide(direction) {
+      currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+    }
+
+    function autoSlide() {
+      moveSlide(1);
+      setTimeout(autoSlide, 5000); // 5秒切換一次
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      setTimeout(autoSlide, 5000); // 初次延遲5秒
+      loadHeader();
+    });
+
+    function loadHeader() {
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading header:', error));
+    }
+
     function toggleMenu() {
       const menu = document.getElementById('menu');
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
@@ -252,10 +213,8 @@
       carouselInner.setAttribute('data-index', index);
     }
 
-    setInterval(() => showNextImage('carousel1'), 3000);
-    setInterval(() => showNextImage('carousel2'), 1500);
+    setInterval(() => showNextImage('carousel2'), 3000);
   </script>
-
 </body>
 
 </html>
